@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Submit a message{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <div style="text-align:center;"><label for="name">Your name or handle:</label>
+      <br>
+      <input type=text name="user" id="user">
+      <br><br><label for="message">Your Message:</label>
+      <br><textarea name="message" id="message"></textarea>
+      <br><br>
+      <input type="submit" name = "submit" id = "submit" value="Submit">
+    </div>
+  </form>
+
+ 
+  {% if user %}
+    {% if message %}
+      <br>
+      <font size=3>Thank you for submitting the messsage!</font>
+    {% endif %}
+  {% endif %}
+
+  {% if error %}
+    <br>
+    Sorry, user or message is not allowed null,pleae try again!
+  {% endif %}
+{% endblock %}
+
+
