@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}View{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div style="text-align:center;"><label for="number">Please input how many messages do you want to view(1-5)?</label>
+      <input style="width:80px;height:30px;font:Arial;font-size:18px" type=number name="number" id="number" placeholder="1 to 5" step="1"> 
+      <br><br>
+      <input type="submit" name='submit1' id = 'submit1' value="View messages">
+    </div>
+  </form>
+  {% for r in g.result %}
+    <br>
+    <font size=4>{{r[0]}}</font>
+    <br>
+    -<i><font size=3>{{r[1]}}</font></i>
+    <br>
+  {% endfor %}
+
+  {% if error %}
+    <br>
+    Sorry, user or message is not allowed null,pleae try again!
+  {% endif %}
+{% endblock %}
+
