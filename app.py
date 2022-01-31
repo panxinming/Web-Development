@@ -62,10 +62,8 @@ def view():
         return render_template('view.html')
     else:
         try:
-            # select a int number.
-            n = int(request.form['number'])
             # extract our message from database.
-            g.result = random_messages(n)
+            g.result = random_messages(int(request.form['number']))
             # view sepcific number of messages we want to show. And return us a thank you message.
             return render_template('view.html',number = "thank you for submitting the message!")
         except:
