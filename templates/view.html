@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}View{% endblock %}</h1>
+  <h1>{% block title %}Secret Base of You and Mine{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <form method="post">
-    <div style="text-align:center;"><label for="number">Please input how many messages do you want to view(1-5)?</label>
-      <input style="width:80px;height:30px;font:Arial;font-size:18px" type=number name="number" id="number" placeholder="1 to 5" step="1"> 
+    <div style="text-align:center;"><label for="number">Grab some random messages.(From 1 to 5)</label>
+      <input style="width:80px;height:30px;font:Arial;font-size:18px" name="number" id="number"> 
       <br><br>
       <input type="submit" name='submit1' id = 'submit1' value="View messages">
     </div>
@@ -22,7 +22,7 @@
 
   {% if error %}
     <br>
-    Sorry, user or message is not allowed null,pleae try again!
+    Error, user or message is empty.
   {% endif %}
 {% endblock %}
 
