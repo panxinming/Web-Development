@@ -6,10 +6,10 @@
 
 {% block content %}
   <form method="post">
-    <div style="text-align:center;"><label for="number">Grab some random messages.(From 1 to 5)</label>
-      <input style="width:80px;height:30px;font:Arial;font-size:18px" name="number" id="number"> 
+    <div><label for="number">Grab some random messages.</label>
+      <input name="number"> 
       <br><br>
-      <input type="submit" name='submit1' id = 'submit1' value="View messages">
+      <input type="submit" value="View messages">
     </div>
   </form>
   {% for r in g.result %}
@@ -19,10 +19,6 @@
     -<i><font size=3>{{r[1]}}</font></i>
     <br>
   {% endfor %}
-
-  {% if error %}
-    <br>
-    Error, user or message is empty.
-  {% endif %}
 {% endblock %}
+
 
