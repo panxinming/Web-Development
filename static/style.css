@@ -1,0 +1,23 @@
+html {
+    font-family: Bradley Hand;
+}
+
+
+
+body {
+    background-color: #E6E6FA;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: royalblue;
+    font-family: cursive;
+    text-align: center;
+}
+
+a {
+    color: indianred;
+}
+
+
