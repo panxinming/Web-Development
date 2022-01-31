@@ -22,29 +22,16 @@ def insert_message(request):
     # collect the user's message and handle.
     message = request.form['message']
     handle = request.form['user']
-    # if user enter both text, then
-    if (message and handle):
-        # insert message into our database.
-        cursor = g.message_db.cursor()
-        cursor.execute("select Max(Id) from messages")
-        result = cursor.fetchone()[0]
-        # ensure that the ID number of each message is unique
-        if (result==None):
-            s = 1
-        else:
-            s = result+1
-        # insert Id, handle, message together.
-        g.sql = 'insert into messages(Id,handle,message) values('+str(s)+',"'+handle+'","'+message+'")'
-        cursor.execute(g.sql)
-        #  it is necessary to run db.commit() after inserting a row into db in order to ensure that your row insertion has been saved.
-        g.message_db.commit()
-        # close our database.
-        cursor.close()
-        g.message_db.close()
-    else:
-        # if user type nothing, then
-        g.sql =  "Message or handle is null ,please try again"
-    return g.sql
+    # insert message into our database.
+    cursor = g.message_db.cursor()
+    # insert handle, message together.
+    g.sql = "INSERT INTO messages (message, handle) VALUES (?, ?)",(message, handle)        
+    cursor.execute(g.sql)
+    #  it is necessary to run db.commit() after inserting a row into db in order to ensure that your row insertion has been saved.
+    g.message_db.commit()
+    # close our database.
+    cursor.close()
+    g.message_db.close()
 
 
 
